@@ -2,7 +2,7 @@
 variable "aws_region" {
   description = "AWS region"
   type        = string
-  default     = "us-east-1"
+  default     = "eu-central-1"
 }
 
 ## Key to allow connection to our EC2 instance
@@ -23,12 +23,12 @@ variable "instance_type" {
 variable "alert_email_id" {
   description = "Email id to send alerts to "
   type        = string
-  default     = "joseph.machado@startdataengineering.com"
+  default     = "dominic.owusu@ymail.com"
 }
 
 ## Your repository url
 variable "repo_url" {
   description = "Repository url to clone into production machine"
   type        = string
-  default     = "https://github.com/josephmachado/data_engineering_project_template.git"
+  default     = "https://github.com/d-owusu/data_engineering_project_template.git"
 }

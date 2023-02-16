@@ -6,7 +6,7 @@ variable "aws_region" {
 }
 
 ## Key to allow connection to our EC2 instance
-variable "de-template" {
+variable "key_name" {
   description = "EC2 key name"
   type        = string
   default     = "de-template"

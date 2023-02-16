@@ -15,8 +15,8 @@ provider "aws" {
 }
 
 # Create security group for access to EC2 from your Anywhere
-resource "aws_security_group" "sde_security_group" {
-  name        = "sde_security_group"
+resource "aws_security_group" "de_security_group" {
+  name        = "de_security_group"
   description = "Security group to allow inbound SCP & outbound 8080 (Airflow) connections"
 
   ingress {
@@ -27,7 +27,7 @@ resource "aws_security_group" "sde_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  egress {
+  egress {de
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
@@ -42,7 +42,7 @@ resource "aws_security_group" "sde_security_group" {
   }
 
   tags = {
-    Name = "sde_security_group"
+    Name = "de_security_group"
   }
 }
 
@@ -73,14 +73,14 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "sde_ec2" {
+resource "aws_instance" "de_ec2" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
 
   key_name        = aws_key_pair.generated_key.key_name
-  security_groups = [aws_security_group.sde_security_group.name]
+  security_groups = [aws_security_group.de_security_group.name]
   tags = {
-    Name = "sde_ec2"
+    Name = "de_ec2"
   }
 
   user_data = <<EOF

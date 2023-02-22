@@ -10,8 +10,7 @@ While we can create, & manage cloud services with custom code, UI, etc., Having 
 We will use Terraform as our IAC framework (others are Pulumi, etc.). Our terraform folder has 3 files
 
 ### main.tf 
-main.tf defines all the services we need. In our main.tf , we create an EC2 instance, its security group where we configure access and a cost alert. Note that in the EC2, we run a script with user_data; this is a script run at EC2 initialization time (cloud-init ). Note that we can define our services in multiple files, like s3.tf, emr.tf, etc., if we choose to.
-
+main.tf defines all the services we need. In our main.tf , we create an EC2 instance, its security group where we configure access and a cost alert. Note that in the EC2, we run a script with user_data; this is a script run at EC2 initialization time (cloud-init ). 
 ### variable.tf 
 These are  variables that can be provided as inputs when spinning up the infrastructure. The main.tf file uses the variables defined in the variable.tf with var.variable_name.
 
